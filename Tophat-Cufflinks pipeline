@@ -1,0 +1,23 @@
+
+#run tophat
+import subprocess as sp
+
+program = 'tophat'
+reference = 'test_ref'
+read1 = 'reads_1.fq'
+read2='reads_2.fq'
+proc = sp.Popen( [program, reference, read1, read2] )
+
+#change directory to /current directory/tophat_out
+import os
+os.chdir('/home/alexander/NGS/16112013/test_data/tophat_out')
+
+
+#run cufflinks
+import subprocess as sp
+
+program = 'cufflinks'
+tophatout = 'accepted_hits.bam'
+proc = sp.Popen( [program,tophatout ] )
+
+print('Done')
